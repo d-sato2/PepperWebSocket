@@ -15,7 +15,7 @@ def on_open(ws):
     def run(*args):
         for i in range(10):
             time.sleep(1)
-            ws.send("Hello %d" % i)
+            ws.send('{"handle":"QRcode","text":"name"}')
         time.sleep(1)
         ws.close()
         print "thread terminating..."
@@ -23,7 +23,7 @@ def on_open(ws):
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("ws://localhost:9090/ws",
+    ws = websocket.WebSocketApp("wss://afternoon-bastion-99962.herokuapp.com/submit",
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
